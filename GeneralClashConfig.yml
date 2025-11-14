@@ -54,12 +54,12 @@ dns:
     - system
     - 223.5.5.5
   nameserver-policy:
-    "+.ggff.net:
-      - "https://cloudflare-dns.com/dns-query"
-      - "https://doh.cmliussss.net/CMLiussss"
-    "+.netlib.re:
-      - "https://cloudflare-dns.com/dns-query"
-      - "https://doh.cmliussss.net/CMLiussss"
-    "+.dpdns.org:
-      - "https://cloudflare-dns.com/dns-query"
-      - "https://doh.cmliussss.net/CMLiussss"
+    '+.ggff.net':
+      - https://cloudflare-dns.com/dns-query
+      - https://doh.cmliussss.net/CMLiussss
+    '+.netlib.re':
+      - https://cloudflare-dns.com/dns-query
+      - https://doh.cmliussss.net/CMLiussss
+    '+.dpdns.org':
+      - https://cloudflare-dns.com/dns-query
+      - https://doh.cmliussss.net/CMLiussss
