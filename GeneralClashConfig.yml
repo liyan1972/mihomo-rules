@@ -62,4 +62,4 @@ dns:
     - https://cloudflare-dns.com/dns-query
   default-nameserver:
     - 223.5.5.5
-    - tls://dns.alidns.com:853
+    - 119.29.29.29
