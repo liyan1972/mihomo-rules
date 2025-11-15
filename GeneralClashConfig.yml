@@ -43,7 +43,7 @@ dns:
     - +.msftconnecttest.com
   proxy-server-nameserver:
     - https://doh.cmliussss.net/CMLiussss
-    - tls://dns.alidns.com:853
+    - https://cloudflare-dns.com/dns-query
   nameserver-policy:
     '+.ggff.net':
       - https://cloudflare-dns.com/dns-query
@@ -55,10 +55,10 @@ dns:
       - https://cloudflare-dns.com/dns-query
       - https://doh.cmliussss.net/CMLiussss
   direct-nameserver:
-    - tls://dns.alidns.com:853
     - https://dns.alidns.com/dns-query
+    - https://cloudflare-dns.com/dns-query
   nameserver:
-    - tls://dns.alidns.com:853
+    - https://dns.alidns.com/dns-query
     - https://cloudflare-dns.com/dns-query
   default-nameserver:
     - 223.5.5.5
