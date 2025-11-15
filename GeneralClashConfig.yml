@@ -35,31 +35,33 @@ dns:
   fake-ip-filter:
     - +.lan
     - +.local
+    - time.*.com
+    - ntp.*.com
     - +.miwifi.com
     - +.docker.io
     - +.market.xiaomi.com
     - +.push.apple.com
     - +.msftncsi.com
     - +.msftconnecttest.com
-  proxy-server-nameserver:
-    - https://dns.alidns.com/dns-query
-    - https://cloudflare-dns.com/dns-query
-  nameserver-policy:
-    '+.ggff.net':
-      - https://cloudflare-dns.com/dns-query
-      - https://doh.cmliussss.net/CMLiussss
-    '+.netlib.re':
-      - https://cloudflare-dns.com/dns-query
-      - https://doh.cmliussss.net/CMLiussss
-    '+.dpdns.org':
-      - https://cloudflare-dns.com/dns-query
-      - https://doh.cmliussss.net/CMLiussss
-  direct-nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
+  default-nameserver:
+    - tls://223.5.5.5
+    - tls://223.6.6.6
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://cloudflare-dns.com/dns-query
-  default-nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
+  direct-nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  proxy-server-nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  nameserver-policy:
+    '+.ggff.net':
+      - https://cloudflare-dns.com/dns-query
+      - https://dns.google/dns-query
+    '+.netlib.re':
+      - https://cloudflare-dns.com/dns-query
+      - https://dns.google/dns-query
+    '+.dpdns.org':
+      - https://cloudflare-dns.com/dns-query
+      - https://dns.google/dns-query
