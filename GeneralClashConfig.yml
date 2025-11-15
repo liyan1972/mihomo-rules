@@ -42,17 +42,8 @@ dns:
     - +.msftncsi.com
     - +.msftconnecttest.com
   proxy-server-nameserver:
+    - https://doh.cmliussss.net/CMLiussss
     - quic://223.5.5.5
-    - quic://dns.alidns.com
-  direct-nameserver:
-    - system
-    - 223.5.5.5
-  nameserver:
-    - quic://223.5.5.5
-    - quic://dns.alidns.com
-  default-nameserver:
-    - system
-    - 223.5.5.5
   nameserver-policy:
     '+.ggff.net':
       - https://cloudflare-dns.com/dns-query
@@ -63,3 +54,12 @@ dns:
     '+.dpdns.org':
       - https://cloudflare-dns.com/dns-query
       - https://doh.cmliussss.net/CMLiussss
+  direct-nameserver:
+    - system
+    - quic://223.5.5.5
+  nameserver:
+    - quic://223.5.5.5
+    - https://cloudflare-dns.com/dns-query
+  default-nameserver:
+    - system
+    - quic://223.5.5.5
