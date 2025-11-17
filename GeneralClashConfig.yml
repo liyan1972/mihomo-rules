@@ -59,3 +59,6 @@ dns:
   nameserver:
     - quic://dns.alidns.com
     - quic://doh.pub
+  rules:
+  # 自定规则
+  - DOMAIN,services.googleapis.cn,默认代理 #Google play
