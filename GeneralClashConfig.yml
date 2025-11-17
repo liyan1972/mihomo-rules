@@ -52,10 +52,6 @@ dns:
   direct-nameserver:
     - quic://dns.alidns.com
     - quic://doh.pub
-  nameserver-policy:
-    'rule-set:Private,Direct,XPTV,AppleCN,Microsoft@cn,China':
-      - quic://dns.alidns.com
-      - quic://doh.pub
   nameserver:
     - quic://dns.alidns.com
     - quic://doh.pub
