@@ -43,15 +43,18 @@ dns:
     - +.push.apple.com
     - +.msftncsi.com
     - +.msftconnecttest.com
-  default-nameserver:
-    - 223.5.5.5
-    - 114.114.114.114
   proxy-server-nameserver:
     - quic://dns.alidns.com
-    - quic://doh.pub
+    - https://dns.google/dns-query
   direct-nameserver:
-    - quic://dns.alidns.com
-    - quic://doh.pub
+    - 218.85.157.99
+    - 223.5.5.5
+  nameserver-policy:
+    '+.msftconnecttest.com,+.msftncsi.com,+.bing.com,+.googleapis.cn':
+      - https://dns.google/dns-query
   nameserver:
     - quic://dns.alidns.com
     - quic://doh.pub
+  default-nameserver:
+    - quic://223.5.5.5
+    - quic://223.6.6.6
