@@ -42,14 +42,6 @@ dns:
     - +.docker.io
     - +.market.xiaomi.com
     - +.push.apple.com
-    - +.msftncsi.com
-    - +.msftconnecttest.com
-    - localhost.ptlogin2.qq.com
-  proxy-server-nameserver:
-    - quic://dns.alidns.com
-  nameserver-policy:
-    '+.msftconnecttest.com,+.msftncsi.com,+.bing.com,+.googleapis.cn,+.xn--ngstr-lra8j.com':
-      - https://dns.google/dns-query#🚀 默认代理
   nameserver:
     - quic://dns.alidns.com
     - quic://doh.pub
