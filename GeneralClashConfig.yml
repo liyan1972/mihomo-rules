@@ -50,8 +50,9 @@ dns:
     - 218.85.157.99
     - 223.5.5.5
   nameserver-policy:
-    '+.msftconnecttest.com,+.msftncsi.com,+.bing.com,+.googleapis.cn':
+    '+.msftconnecttest.com,+.msftncsi.com,+.bing.com,+.googleapis.cn,+.xn--ngstr-lra8j.com':
       - https://dns.google/dns-query
+      - https://cloudflare-dns.com/dns-query
   nameserver:
     - quic://dns.alidns.com
     - quic://doh.pub
