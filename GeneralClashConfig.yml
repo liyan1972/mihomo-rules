@@ -41,9 +41,10 @@ dns:
     - +.docker.io
     - +.market.xiaomi.com
     - +.push.apple.com
+  respect-rules: true
+  proxy-server-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
   nameserver:
     - quic://dns.alidns.com
     - quic://doh.pub
-  default-nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
