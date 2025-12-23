@@ -1,264 +1,143 @@
-// 名称： Seven1_fallback_FlClash
-// 版本： v0.1
-// 日期： 2025年12月22日
-// 频道： https://t.me/Seven1gogogo
-// 地址： https://github.com/Seven1echo/Yaml
-// 说明： 本脚本适用于FlClash覆写脚本，fallback故障转移。
+// FlClash覆写脚本
 
 function main(config) {
   config["proxy-groups"] = [
     {
-      name: "🚀 一键代理",
-      proxies: [
-        "🔄 香港故转", "🔄 日本故转", "🔄 新加坡故转", "🔄 美国故转", "🔄 欧洲故转", "🛬 香港自动", "🛬 日本自动", "🛬 新加坡自动", "🛬 美国自动", "🛬 欧洲自动", "🇭🇰 香港手动", "🇯🇵 日本手动", "🇸🇬 新加坡手动", "🇺🇸 美国手动", "🇪🇺 欧洲手动", "🌐 其他手动", "DIRECT", "REJECT"
-      ],
+      name: "🚀 Proxy",
+      include-all: true,
+      proxies: [ "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
       type: "select",
       interval: 300,
       tolerance: 50
     },
     {
+      name: "🚀 Auto",
+      proxies: [ "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
+      type: "fallback",
+      interval: 300,
+      tolerance: 50
+    },
+    {
       name: "📹 YouTube",
-      proxies: [
-        "🚀 一键代理", "🔄 香港故转", "🔄 日本故转", "🔄 新加坡故转", "🔄 美国故转", "🔄 欧洲故转", "🛬 香港自动", "🛬 日本自动", "🛬 新加坡自动", "🛬 美国自动", "🛬 欧洲自动", "🇭🇰 香港手动", "🇯🇵 日本手动", "🇸🇬 新加坡手动", "🇺🇸 美国手动", "🇪🇺 欧洲手动", "🌐 其他手动", "DIRECT", "REJECT"
-      ],
+      proxies: [ "🚀 默认代理",  "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
       type: "select",
       interval: 300,
       tolerance: 50
     },
     {
       name: "🍀 Google",
-      proxies: [
-        "🚀 一键代理", "🔄 香港故转", "🔄 日本故转", "🔄 新加坡故转", "🔄 美国故转", "🔄 欧洲故转", "🛬 香港自动", "🛬 日本自动", "🛬 新加坡自动", "🛬 美国自动", "🛬 欧洲自动", "🇭🇰 香港手动", "🇯🇵 日本手动", "🇸🇬 新加坡手动", "🇺🇸 美国手动", "🇪🇺 欧洲手动", "🌐 其他手动", "DIRECT", "REJECT"
-      ],
+      proxies: [ "🚀 默认代理",  "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
       type: "select",
       interval: 300,
       tolerance: 50
     },
     {
       name: "🤖 ChatGPT",
-      proxies: [
-        "🚀 一键代理", "🔄 香港故转", "🔄 日本故转", "🔄 新加坡故转", "🔄 美国故转", "🔄 欧洲故转", "🛬 香港自动", "🛬 日本自动", "🛬 新加坡自动", "🛬 美国自动", "🛬 欧洲自动", "🇭🇰 香港手动", "🇯🇵 日本手动", "🇸🇬 新加坡手动", "🇺🇸 美国手动", "🇪🇺 欧洲手动", "🌐 其他手动", "DIRECT", "REJECT"
-      ],
+      proxies: [ "🇯🇵 日本自动", "🚀 默认代理",  "🇭🇰 香港自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
       type: "select",
       interval: 300,
       tolerance: 50
     },
     {
       name: "👨🏿‍💻 GitHub",
-      proxies: [
-        "🚀 一键代理", "🔄 香港故转", "🔄 日本故转", "🔄 新加坡故转", "🔄 美国故转", "🔄 欧洲故转", "🛬 香港自动", "🛬 日本自动", "🛬 新加坡自动", "🛬 美国自动", "🛬 欧洲自动", "🇭🇰 香港手动", "🇯🇵 日本手动", "🇸🇬 新加坡手动", "🇺🇸 美国手动", "🇪🇺 欧洲手动", "🌐 其他手动", "DIRECT", "REJECT"
-      ],
+      proxies: [ "🚀 默认代理",  "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
       type: "select",
       interval: 300,
       tolerance: 50
     },
     {
       name: "🐬 OneDrive",
-      proxies: [
-        "🚀 一键代理", "🔄 香港故转", "🔄 日本故转", "🔄 新加坡故转", "🔄 美国故转", "🔄 欧洲故转", "🛬 香港自动", "🛬 日本自动", "🛬 新加坡自动", "🛬 美国自动", "🛬 欧洲自动", "🇭🇰 香港手动", "🇯🇵 日本手动", "🇸🇬 新加坡手动", "🇺🇸 美国手动", "🇪🇺 欧洲手动", "🌐 其他手动", "DIRECT", "REJECT"
-      ],
+      proxies: [ "🚀 默认代理",  "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
       type: "select",
       interval: 300,
       tolerance: 50
     },
     {
       name: "🪟 Microsoft",
-      proxies: [
-        "🚀 一键代理", "🔄 香港故转", "🔄 日本故转", "🔄 新加坡故转", "🔄 美国故转", "🔄 欧洲故转", "🛬 香港自动", "🛬 日本自动", "🛬 新加坡自动", "🛬 美国自动", "🛬 欧洲自动", "🇭🇰 香港手动", "🇯🇵 日本手动", "🇸🇬 新加坡手动", "🇺🇸 美国手动", "🇪🇺 欧洲手动", "🌐 其他手动", "DIRECT", "REJECT"
-      ],
+      proxies: [ "DIRECT" "🚀 默认代理",  "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", ],
       type: "select",
       interval: 300,
       tolerance: 50
     },
     {
       name: "🎵 TikTok",
-      proxies: [
-        "🚀 一键代理", "🔄 香港故转", "🔄 日本故转", "🔄 新加坡故转", "🔄 美国故转", "🔄 欧洲故转", "🛬 香港自动", "🛬 日本自动", "🛬 新加坡自动", "🛬 美国自动", "🛬 欧洲自动", "🇭🇰 香港手动", "🇯🇵 日本手动", "🇸🇬 新加坡手动", "🇺🇸 美国手动", "🇪🇺 欧洲手动", "🌐 其他手动", "DIRECT", "REJECT"
-      ],
+      proxies: [ "🚀 默认代理",  "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
       type: "select",
       interval: 300,
       tolerance: 50
     },
     {
       name: "📲 Telegram",
-      proxies: [
-        "🚀 一键代理", "🔄 香港故转", "🔄 日本故转", "🔄 新加坡故转", "🔄 美国故转", "🔄 欧洲故转", "🛬 香港自动", "🛬 日本自动", "🛬 新加坡自动", "🛬 美国自动", "🛬 欧洲自动", "🇭🇰 香港手动", "🇯🇵 日本手动", "🇸🇬 新加坡手动", "🇺🇸 美国手动", "🇪🇺 欧洲手动", "🌐 其他手动", "DIRECT", "REJECT"
-      ],
+      proxies: [ "🚀 默认代理",  "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
       type: "select",
       interval: 300,
       tolerance: 50
     },
     {
       name: "🎥 NETFLIX",
-      proxies: [
-        "🚀 一键代理", "🔄 香港故转", "🔄 日本故转", "🔄 新加坡故转", "🔄 美国故转", "🔄 欧洲故转", "🛬 香港自动", "🛬 日本自动", "🛬 新加坡自动", "🛬 美国自动", "🛬 欧洲自动", "🇭🇰 香港手动", "🇯🇵 日本手动", "🇸🇬 新加坡手动", "🇺🇸 美国手动", "🇪🇺 欧洲手动", "🌐 其他手动", "DIRECT", "REJECT"
-      ],
+      proxies: [ "🚀 默认代理",  "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
       type: "select",
       interval: 300,
       tolerance: 50
     },
     {
       name: "💶 PayPal",
-      proxies: [
-        "🚀 一键代理", "🔄 香港故转", "🔄 日本故转", "🔄 新加坡故转", "🔄 美国故转", "🔄 欧洲故转", "🛬 香港自动", "🛬 日本自动", "🛬 新加坡自动", "🛬 美国自动", "🛬 欧洲自动", "🇭🇰 香港手动", "🇯🇵 日本手动", "🇸🇬 新加坡手动", "🇺🇸 美国手动", "🇪🇺 欧洲手动", "🌐 其他手动", "DIRECT", "REJECT"
-      ],
+      proxies: [ "🚀 默认代理",  "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
       type: "select",
       interval: 300,
       tolerance: 50
     },
     {
       name: "✈️ Speedtest",
-      proxies: [
-        "🚀 一键代理", "🔄 香港故转", "🔄 日本故转", "🔄 新加坡故转", "🔄 美国故转", "🔄 欧洲故转", "🛬 香港自动", "🛬 日本自动", "🛬 新加坡自动", "🛬 美国自动", "🛬 欧洲自动", "🇭🇰 香港手动", "🇯🇵 日本手动", "🇸🇬 新加坡手动", "🇺🇸 美国手动", "🇪🇺 欧洲手动", "🌐 其他手动", "DIRECT", "REJECT"
-      ],
+      proxies: [ "🚀 默认代理",  "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
       type: "select",
+      interval: 300,
+      tolerance: 50
+    },
+    {
+      name: "🇭🇰 香港自动",
+      include-all: true,
+      hidden: true,
+      filter: "(?i)港|HK|hk|Hong Kong|HongKong|hongkong",
+      type: "url-test",
+      url: "https://www.google.com/generate_204",
+      interval: 300,
+      tolerance: 50
+    },
+    {
+      name: "🇯🇵 日本自动",
+      include-all: true,
+      hidden: true,
+      filter: "(?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan",
+      type: "url-test",
+      url: "https://www.google.com/generate_204",
+      interval: 300,
+      tolerance: 50
+    },
+    {
+      name: "🇸🇬 狮城自动",
+      include-all: true,
+      hidden: true,
+      filter: "(?i)新加坡|坡|狮城|SG|Singapore",
+      type: "url-test",
+      url: "https://www.google.com/generate_204",
+      interval: 300,
+      tolerance: 50
+    },
+    {
+      name: "🇺🇸 美国自动",
+      include-all: true,
+      hidden: true,
+      filter: "(?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States",
+      type: "url-test",
+      url: "https://www.google.com/generate_204",
       interval: 300,
       tolerance: 50
     },
     {
       name: "🐟 漏网之鱼",
-      proxies: [
-        "🚀 一键代理", "🔄 香港故转", "🔄 日本故转", "🔄 新加坡故转", "🔄 美国故转", "🔄 欧洲故转", "🛬 香港自动", "🛬 日本自动", "🛬 新加坡自动", "🛬 美国自动", "🛬 欧洲自动", "🇭🇰 香港手动", "🇯🇵 日本手动", "🇸🇬 新加坡手动", "🇺🇸 美国手动", "🇪🇺 欧洲手动", "🌐 其他手动", "DIRECT", "REJECT"
-      ],
+      proxies: [ "🚀 默认代理", "DIRECT" ],
       type: "select",
-      interval: 300,
-      tolerance: 50
-    },
-    {
-      name: "🔄 香港故转",
-      type: "fallback",
-      hidden: true,
-      proxies: [
-        "🇭🇰 香港手动", "🛬 香港自动"
-      ]
-    },
-    {
-      name: "🔄 日本故转",
-      type: "fallback",
-      hidden: true,
-      proxies: [
-        "🇯🇵 日本手动", "🛬 日本自动"
-      ]
-    },
-    {
-      name: "🔄 新加坡故转",
-      type: "fallback",
-      hidden: true,
-      proxies: [
-        "🇸🇬 新加坡手动", "🛬 新加坡自动"
-      ]
-    },
-    {
-      name: "🔄 美国故转",
-      type: "fallback",
-      hidden: true,
-      proxies: [
-        "🇺🇸 美国手动", "🛬 美国自动"
-      ]
-    },
-    {
-      name: "🔄 欧洲故转",
-      type: "fallback",
-      hidden: true,
-      proxies: [
-        "🇪🇺 欧洲手动", "🛬 欧洲自动"
-      ]
-    },
-    {
-      name: "🇭🇰 香港手动",
-      "include-all": true,
-      filter: "(?i)港|HK|hk|Hong Kong|HongKong|hongkong",
-      type: "select",
-      interval: 300,
-      tolerance: 50
-    },
-    {
-      name: "🇯🇵 日本手动",
-      "include-all": true,
-      filter: "(?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan",
-      type: "select",
-      interval: 300,
-      tolerance: 50
-    },
-    {
-      name: "🇸🇬 新加坡手动",
-      "include-all": true,
-      filter: "(?i)新加坡|坡|狮城|SG|Singapore",
-      type: "select",
-      interval: 300,
-      tolerance: 50
-    },
-    {
-      name: "🇺🇸 美国手动",
-      "include-all": true,
-      filter: "(?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States",
-      type: "select",
-      interval: 300,
-      tolerance: 50
-    },
-    {
-      name: "🇪🇺 欧洲手动",
-      "include-all": true,
-      filter: "(?i)奥地利|比利时|保加利亚|克罗地亚|塞尔维亚|捷克|丹麦|爱沙尼亚|芬兰|法国|德国|希腊|匈牙利|爱尔兰|意大利|拉脱维亚|立陶宛|卢森堡|马耳他|荷兰|波兰|葡萄牙|罗马尼亚|斯洛伐克|斯洛文尼亚|西班牙|瑞典|英国|🇧🇪|🇨🇿|🇩🇰|🇫🇮|🇫🇷|🇩🇪|🇮🇪|🇮🇹|🇱🇹|🇱🇺|🇳🇱|🇵🇱|🇸🇪|🇬🇧|CDG|FRA|AMS|MAD|BCN|FCO|MUC|BRU",
-      type: "select",
-      interval: 300,
-      tolerance: 50
-    },
-    {
-      name: "🌐 其他手动",
-      "include-all": true,
-      "exclude-filter": "(?i)港|HK|hk|Hong Kong|HongKong|hongkong|台|新北|彰化|TW|Taiwan|新加坡|坡|狮城|SG|Singapore|美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan|奥地利|比利时|保加利亚|克罗地亚|塞尔维亚|捷克|丹麦|爱沙尼亚|芬兰|法国|德国|希腊|匈牙利|爱尔兰|意大利|拉脱维亚|立陶宛|卢森堡|马耳他|荷兰|波兰|葡萄牙|罗马尼亚|斯洛伐克|斯洛文尼亚|西班牙|瑞典|英国|🇧🇪|🇨🇿|🇩🇰|🇫🇮|🇫🇷|🇩🇪|🇮🇪|🇮🇹|🇱🇹|🇱🇺|🇳🇱|🇵🇱|🇸🇪|🇬🇧|CDG|FRA|AMS|MAD|BCN|FCO|MUC|BRU",
-      type: "select",
-      interval: 300,
-      tolerance: 50
-    },
-    {
-      name: "🛬 香港自动",
-      "include-all": true,
-      hidden: true,
-      filter: "(?i)港|HK|hk|Hong Kong|HongKong|hongkong",
-      type: "url-test",
-      url: "https://www.google.com/generate_204",
-      interval: 300,
-      tolerance: 50
-    },
-    {
-      name: "🛬 日本自动",
-      "include-all": true,
-      hidden: true,
-      filter: "(?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan",
-      type: "url-test",
-      url: "https://www.google.com/generate_204",
-      interval: 300,
-      tolerance: 50
-    },
-    {
-      name: "🛬 新加坡自动",
-      "include-all": true,
-      hidden: true,
-      filter: "(?i)新加坡|坡|狮城|SG|Singapore",
-      type: "url-test",
-      url: "https://www.google.com/generate_204",
-      interval: 300,
-      tolerance: 50
-    },
-    {
-      name: "🛬 美国自动",
-      "include-all": true,
-      hidden: true,
-      filter: "(?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States",
-      type: "url-test",
-      url: "https://www.google.com/generate_204",
-      interval: 300,
-      tolerance: 50
-    },
-    {
-      name: "🛬 欧洲自动",
-      "include-all": true,
-      hidden: true,
-      filter: "(?i)奥地利|比利时|保加利亚|克罗地亚|塞尔维亚|捷克|丹麦|爱沙尼亚|芬兰|法国|德国|希腊|匈牙利|爱尔兰|意大利|拉脱维亚|立陶宛|卢森堡|马耳他|荷兰|波兰|葡萄牙|罗马尼亚|斯洛伐克|斯洛文尼亚|西班牙|瑞典|英国|🇧🇪|🇨🇿|🇩🇰|🇫🇮|🇫🇷|🇩🇪|🇮🇪|🇮🇹|🇱🇹|🇱🇺|🇳🇱|🇵🇱|🇸🇪|🇬🇧|CDG|FRA|AMS|MAD|BCN|FCO|MUC|BRU",
-      type: "url-test",
-      url: "https://www.google.com/generate_204",
       interval: 300,
       tolerance: 50
     }
@@ -432,7 +311,7 @@ function main(config) {
     "RULE-SET,telegram_domain,📲 Telegram",
     "RULE-SET,netflix_domain,🎥 NETFLIX",
     "RULE-SET,paypal_domain,💶 PayPal",
-    "RULE-SET,geolocation-!cn,🚀 一键代理",
+    "RULE-SET,geolocation-!cn,🚀 默认代理",
     "RULE-SET,cn_domain,DIRECT",
     "RULE-SET,google_ip,🍀 Google,no-resolve",
     "RULE-SET,netflix_ip,🎥 NETFLIX,no-resolve",
@@ -442,5 +321,6 @@ function main(config) {
   ];
   return config;
 }
+
 
 
