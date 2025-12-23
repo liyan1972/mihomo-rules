@@ -1,99 +1,83 @@
-// FlClash覆写脚本
-
+// FlClash 覆写脚本
 function main(config) {
+  // --- 1. 定义“锚点”变量 (模拟 YAML 锚点) ---
+  // 提取基础的自动选路组名称
+  const autoGroups = [ "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动" ];
+  
+  // 提取通用代理列表：手动选择组 + 自动选路组 + 直连
+  const commonProxies = [ "🚀 Proxy", ...autoGroups, "DIRECT" ];
+
+  // --- 2. 代理组配置 (proxy-groups) ---
   config["proxy-groups"] = [
     {
       name: "🚀 Proxy",
       include-all: true,
-      proxies: [ "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
-      type: "select",
-      interval: 300,
-      tolerance: 50
+      proxies: [ ...autoGroups, "DIRECT" ],
+      type: "select"
     },
     {
       name: "🚀 Auto",
-      proxies: [ "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
+      proxies: autoGroups,
       type: "fallback",
       interval: 300,
       tolerance: 50
     },
     {
       name: "📹 YouTube",
-      proxies: [ "🚀 默认代理",  "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
-      type: "select",
-      interval: 300,
-      tolerance: 50
+      proxies: commonProxies,
+      type: "select"
     },
     {
       name: "🍀 Google",
-      proxies: [ "🚀 默认代理",  "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
-      type: "select",
-      interval: 300,
-      tolerance: 50
+      proxies: commonProxies,
+      type: "select"
     },
     {
       name: "🤖 ChatGPT",
-      proxies: [ "🇯🇵 日本自动", "🚀 默认代理",  "🇭🇰 香港自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
-      type: "select",
-      interval: 300,
-      tolerance: 50
+      proxies: [ "🇯🇵 日本自动", "🇺🇸 美国自动", "🚀 Proxy", "🇸🇬 狮城自动" ],
+      type: "select"
     },
     {
       name: "👨🏿‍💻 GitHub",
-      proxies: [ "🚀 默认代理",  "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
-      type: "select",
-      interval: 300,
-      tolerance: 50
+      proxies: commonProxies,
+      type: "select"
     },
     {
       name: "🐬 OneDrive",
-      proxies: [ "🚀 默认代理",  "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
-      type: "select",
-      interval: 300,
-      tolerance: 50
+      proxies: commonProxies,
+      type: "select"
     },
     {
       name: "🪟 Microsoft",
-      proxies: [ "DIRECT" "🚀 默认代理",  "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", ],
-      type: "select",
-      interval: 300,
-      tolerance: 50
+      proxies: [ "DIRECT", "🚀 Proxy", ...autoGroups ],
+      type: "select"
     },
     {
       name: "🎵 TikTok",
-      proxies: [ "🚀 默认代理",  "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
-      type: "select",
-      interval: 300,
-      tolerance: 50
+      proxies: commonProxies,
+      type: "select"
     },
     {
       name: "📲 Telegram",
-      proxies: [ "🚀 默认代理",  "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
-      type: "select",
-      interval: 300,
-      tolerance: 50
+      proxies: commonProxies,
+      type: "select"
     },
     {
       name: "🎥 NETFLIX",
-      proxies: [ "🚀 默认代理",  "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
-      type: "select",
-      interval: 300,
-      tolerance: 50
+      proxies: commonProxies,
+      type: "select"
     },
     {
       name: "💶 PayPal",
-      proxies: [ "🚀 默认代理",  "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
-      type: "select",
-      interval: 300,
-      tolerance: 50
+      proxies: commonProxies,
+      type: "select"
     },
     {
       name: "✈️ Speedtest",
-      proxies: [ "🚀 默认代理",  "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇺🇸 美国自动", "DIRECT" ],
-      type: "select",
-      interval: 300,
-      tolerance: 50
+      proxies: commonProxies,
+      type: "select"
     },
+    // --- 自动测速子组 (隐藏) ---
     {
       name: "🇭🇰 香港自动",
       include-all: true,
@@ -136,16 +120,24 @@ function main(config) {
     },
     {
       name: "🐟 漏网之鱼",
-      proxies: [ "🚀 默认代理", "DIRECT" ],
-      type: "select",
-      interval: 300,
-      tolerance: 50
+      proxies: [ "🚀 Proxy", "DIRECT" ],
+      type: "select"
     }
   ];
+
+  // --- 3. 规则集配置 (rule-providers) ---
   config["rule-providers"] = {
     private_domain: {
       url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs",
       path: "./ruleset/private_domain.mrs",
+      behavior: "domain",
+      interval: 86400,
+      format: "mrs",
+      type: "http"
+    },
+    cn_domain: {
+      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs",
+      path: "./ruleset/cn_domain.mrs",
       behavior: "domain",
       interval: 86400,
       format: "mrs",
@@ -239,18 +231,9 @@ function main(config) {
       format: "mrs",
       type: "http"
     },
-    // 关键修正1：规则集名称改为 geolocation-!cn（与规则引用一致）
     "geolocation-!cn": {
       url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs",
-      path: "./ruleset/geolocation-!cn.mrs", // 关键修正2：补充 .mrs 后缀
-      behavior: "domain",
-      interval: 86400,
-      format: "mrs",
-      type: "http"
-    },
-    cn_domain: {
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs",
-      path: "./ruleset/cn_domain.mrs",
+      path: "./ruleset/geolocation-!cn.mrs",
       behavior: "domain",
       interval: 86400,
       format: "mrs",
@@ -259,6 +242,14 @@ function main(config) {
     private_ip: {
       url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs",
       path: "./ruleset/private_ip.mrs",
+      behavior: "ipcidr",
+      interval: 86400,
+      format: "mrs",
+      type: "http"
+    },
+    cn_ip: {
+      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs",
+      path: "./ruleset/cn_ip.mrs",
       behavior: "ipcidr",
       interval: 86400,
       format: "mrs",
@@ -287,16 +278,10 @@ function main(config) {
       interval: 86400,
       format: "mrs",
       type: "http"
-    },
-    cn_ip: {
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs",
-      path: "./ruleset/cn_ip.mrs",
-      behavior: "ipcidr",
-      interval: 86400,
-      format: "mrs",
-      type: "http"
     }
   };
+
+  // --- 4. 路由规则 (rules) ---
   config["rules"] = [
     "RULE-SET,private_ip,DIRECT,no-resolve",
     "RULE-SET,private_domain,DIRECT",
@@ -311,7 +296,7 @@ function main(config) {
     "RULE-SET,telegram_domain,📲 Telegram",
     "RULE-SET,netflix_domain,🎥 NETFLIX",
     "RULE-SET,paypal_domain,💶 PayPal",
-    "RULE-SET,geolocation-!cn,🚀 默认代理",
+    "RULE-SET,geolocation-!cn,🚀 Proxy",
     "RULE-SET,cn_domain,DIRECT",
     "RULE-SET,google_ip,🍀 Google,no-resolve",
     "RULE-SET,netflix_ip,🎥 NETFLIX,no-resolve",
@@ -319,8 +304,6 @@ function main(config) {
     "RULE-SET,cn_ip,DIRECT",
     "MATCH,🐟 漏网之鱼"
   ];
+
   return config;
 }
-
-
-
