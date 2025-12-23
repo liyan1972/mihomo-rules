@@ -20,7 +20,7 @@ function main(config) {
     url: "https://www.google.com/generate_204"
   };
 
-  // --- 3. 代理组配置 ---
+  // --- 4. 代理组配置 ---
   config["proxy-groups"] = [
     { 
       name: "🚀 Proxy", 
@@ -53,7 +53,7 @@ function main(config) {
     { name: "🐟 漏网之鱼", type: "select", proxies: [ "🚀 Proxy", "DIRECT" ] }
   ];
 
-  // --- 4. 规则集配置 ---
+  // --- 5. 规则集配置 ---
   config["rule-providers"] = {
     private_domain: { ...mrsDomain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs", path: "./ruleset/private_domain.mrs" },
     speedtest_domain: { ...mrsDomain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/ookla-speedtest.mrs", path: "./ruleset/speedtest_domain.mrs" },
@@ -76,7 +76,7 @@ function main(config) {
     cn_ip: { ...mrsIP, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs", path: "./ruleset/cn_ip.mrs" }
   };
 
-  // --- 5. 规则 ---
+  // --- 6. 规则 ---
   config["rules"] = [
     "RULE-SET,private_ip,DIRECT,no-resolve",
     "RULE-SET,private_domain,DIRECT",
@@ -102,3 +102,4 @@ function main(config) {
 
   return config;
 }
+
