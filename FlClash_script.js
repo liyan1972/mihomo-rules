@@ -14,7 +14,7 @@ function main(config) {
 
   // --- 4. 代理组 ---
   config["proxy-groups"] = [
-    { name: "🚀 Proxy", type: "select", "include-all": true, proxies: [ "🚀 Auto", "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇹🇼 台湾自动", "🇺🇸 美国自动" ] },
+    { name: "🚀 Proxy", type: "select", "include-all": true, proxies: [ "🔄 Auto", "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇹🇼 台湾自动", "🇺🇸 美国自动" ] },
     { name: "🔄 Auto", type: "fallback", interval: 300, tolerance: 30, proxies: autoGroups },
     
     // 业务组 (使用 selectGroups 变量)
@@ -89,5 +89,6 @@ function main(config) {
 
   return config;
 }
+
 
 
