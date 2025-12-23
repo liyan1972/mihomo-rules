@@ -1,20 +1,35 @@
-// FlClash 覆写脚本 - 修正版
+// FlClash 覆写脚本 - 模板优化版
 function main(config) {
   // --- 1. 模拟锚点：基础变量定义 ---
   const autoGroups = [ "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇹🇼 台湾自动", "🇭🇰 香港自动", "🇺🇸 美国自动" ];
   const commonProxies = [ "🚀 Proxy", "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇹🇼 台湾自动", "🇺🇸 美国自动", "DIRECT" ];
 
-  // --- 2. 模拟锚点：对象模板 ---
+  // --- 2. 模拟锚点：对象模板 (配置复用) ---
+  // 规则集通用配置
   const mrsDomain = { behavior: "domain", interval: 86400, format: "mrs", type: "http" };
   const mrsIP = { behavior: "ipcidr", interval: 86400, format: "mrs", type: "http" };
 
+  // 自动测速组通用配置 (解决 include-all 引号问题)
+  const urlTestTemplate = {
+    type: "url-test",
+    "include-all": true,
+    hidden: false,
+    interval: 300,
+    tolerance: 50,
+    url: "https://www.google.com/generate_204"
+  };
+
   // --- 3. 代理组配置 ---
   config["proxy-groups"] = [
-    // 关键修正：include-all 必须加引号
-    { name: "🚀 Proxy", type: "select", "include-all": true, proxies: [ "🚀 Auto", "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇹🇼 台湾自动", "🇺🇸 美国自动" ] },
+    { 
+      name: "🚀 Proxy", 
+      type: "select", 
+      "include-all": true, 
+      proxies: [ "🚀 Auto", "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇹🇼 台湾自动", "🇺🇸 美国自动" ] 
+    },
     { name: "🚀 Auto", type: "fallback", interval: 300, tolerance: 50, proxies: autoGroups },
     
-    // 基础业务组
+    // 基础业务组 (使用 commonProxies 变量)
     { name: "📹 YouTube", type: "select", proxies: commonProxies },
     { name: "🍀 Google", type: "select", proxies: commonProxies },
     { name: "🤖 ChatGPT", type: "select", proxies: commonProxies },
@@ -27,12 +42,12 @@ function main(config) {
     { name: "💶 PayPal", type: "select", proxies: commonProxies },
     { name: "✈️ Speedtest", type: "select", proxies: commonProxies },
 
-    // 自动测速子组
-    { name: "🇭🇰 香港自动", type: "url-test", "include-all": true, hidden: true, interval: 300, tolerance: 50, url: "https://www.google.com/generate_204", filter: "(?i)(🇭🇰|HK|香港)" },
-    { name: "🇯🇵 日本自动", type: "url-test", "include-all": true, hidden: true, interval: 300, tolerance: 50, url: "https://www.google.com/generate_204", filter: "(?i)(🇯🇵|JP|日本)" },
-    { name: "🇸🇬 狮城自动", type: "url-test", "include-all": true, hidden: true, interval: 300, tolerance: 50, url: "https://www.google.com/generate_204", filter: "(?i)(🇸🇬|SG|新加坡)" },
-    { name: "🇹🇼 台湾自动", type: "url-test", "include-all": true, hidden: true, interval: 300, tolerance: 50, url: "https://www.google.com/generate_204", filter: "(?i)(🇹🇼|TW|台湾)" },
-    { name: "🇺🇸 美国自动", type: "url-test", "include-all": true, hidden: true, interval: 300, tolerance: 50, url: "https://www.google.com/generate_204", filter: "(?i)(🇺🇸|US|美国)" },
+    // 自动测速子组 (使用 ...urlTestTemplate 模板)
+    { name: "🇭🇰 香港自动", ...urlTestTemplate, filter: "(?i)(🇭🇰|HK|香港)" },
+    { name: "🇯🇵 日本自动", ...urlTestTemplate, filter: "(?i)(🇯🇵|JP|日本)" },
+    { name: "🇸🇬 狮城自动", ...urlTestTemplate, filter: "(?i)(🇸🇬|SG|新加坡)" },
+    { name: "🇹🇼 台湾自动", ...urlTestTemplate, filter: "(?i)(🇹🇼|TW|台湾)" },
+    { name: "🇺🇸 美国自动", ...urlTestTemplate, filter: "(?i)(🇺🇸|US|美国)" },
     
     { name: "🐟 漏网之鱼", type: "select", proxies: [ "🚀 Proxy", "DIRECT" ] }
   ];
