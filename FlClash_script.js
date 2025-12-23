@@ -3,45 +3,44 @@
 function main(config) {
   // --- 1. 基础变量定义 ---
   const autoGroups = [ "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇹🇼 台湾自动", "🇭🇰 香港自动", "🇺🇸 美国自动" ];
-  const commonProxies = [ "🚀 Proxy", "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇹🇼 台湾自动", "🇺🇸 美国自动", "DIRECT" ];
+  const selectGroups = [ "🚀 Proxy", "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇹🇼 台湾自动", "🇺🇸 美国自动", "DIRECT" ];
 
-  // --- 2. 对象模板 (配置复用) ---
-  // 规则集通用配置
+  // --- 2. 规则集配置 ---
   const mrsDomain = { behavior: "domain", interval: 86400, format: "mrs", type: "http" };
   const mrsIP = { behavior: "ipcidr", interval: 86400, format: "mrs", type: "http" };
 
-  // --- 3. 自动测速定义 ---
-  const urlTestTemplate = { type: "url-test", "include-all": true, hidden: false, interval: 300, tolerance: 50, url: "https://www.google.com/generate_204" };
+  // --- 3. 自动测速 ---
+  const urlTestGroups = { type: "url-test", "include-all": true, hidden: false, interval: 300, tolerance: 30, url: "https://www.google.com/generate_204" };
 
-  // --- 4. 代理组配置 ---
+  // --- 4. 代理组 ---
   config["proxy-groups"] = [
     { name: "🚀 Proxy", type: "select", "include-all": true, proxies: [ "🚀 Auto", "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇹🇼 台湾自动", "🇺🇸 美国自动" ] },
-    { name: "🚀 Auto", type: "fallback", interval: 300, tolerance: 50, proxies: autoGroups },
+    { name: "🔄 Auto", type: "fallback", interval: 300, tolerance: 30, proxies: autoGroups },
     
-    // 基础业务组 (使用 commonProxies 变量)
-    { name: "📹 YouTube", type: "select", proxies: commonProxies },
-    { name: "🍀 Google", type: "select", proxies: commonProxies },
-    { name: "🤖 ChatGPT", type: "select", proxies: commonProxies },
-    { name: "👨🏿‍💻 GitHub", type: "select", proxies: commonProxies },
-    { name: "🐬 OneDrive", type: "select", proxies: commonProxies },
-    { name: "🪟 Microsoft", type: "select", proxies: commonProxies },
-    { name: "🎵 TikTok", type: "select", proxies: commonProxies },
-    { name: "📲 Telegram", type: "select", proxies: commonProxies },
-    { name: "🎥 NETFLIX", type: "select", proxies: commonProxies },
-    { name: "💶 PayPal", type: "select", proxies: commonProxies },
-    { name: "✈️ Speedtest", type: "select", proxies: commonProxies },
+    // 业务组 (使用 selectGroups 变量)
+    { name: "📹 YouTube", type: "select", proxies: selectGroups },
+    { name: "🍀 Google", type: "select", proxies: selectGroups },
+    { name: "🤖 ChatGPT", type: "select", proxies: selectGroups },
+    { name: "👨🏿‍💻 GitHub", type: "select", proxies: selectGroups },
+    { name: "🐬 OneDrive", type: "select", proxies: selectGroups },
+    { name: "🪟 Microsoft", type: "select", proxies: selectGroups },
+    { name: "🎵 TikTok", type: "select", proxies: selectGroups },
+    { name: "📲 Telegram", type: "select", proxies: selectGroups },
+    { name: "🎥 NETFLIX", type: "select", proxies: selectGroups },
+    { name: "💶 PayPal", type: "select", proxies: selectGroups },
+    { name: "✈️ Speedtest", type: "select", proxies: selectGroups },
 
-    // 自动测速子组 (使用 ...urlTestTemplate 模板)
-    { name: "🇭🇰 香港自动", ...urlTestTemplate, filter: "(?i)(🇭🇰|HK|香港)" },
-    { name: "🇯🇵 日本自动", ...urlTestTemplate, filter: "(?i)(🇯🇵|JP|日本)" },
-    { name: "🇸🇬 狮城自动", ...urlTestTemplate, filter: "(?i)(🇸🇬|SG|新加坡)" },
-    { name: "🇹🇼 台湾自动", ...urlTestTemplate, filter: "(?i)(🇹🇼|TW|台湾)" },
-    { name: "🇺🇸 美国自动", ...urlTestTemplate, filter: "(?i)(🇺🇸|US|美国)" },
+    // 自动测速组 (使用 ...urlTestGroups 模板)
+    { name: "🇭🇰 香港自动", ...urlTestGroups, filter: "(?i)(🇭🇰|HK|香港)" },
+    { name: "🇯🇵 日本自动", ...urlTestGroups, filter: "(?i)(🇯🇵|JP|日本)" },
+    { name: "🇸🇬 狮城自动", ...urlTestGroups, filter: "(?i)(🇸🇬|SG|新加坡)" },
+    { name: "🇹🇼 台湾自动", ...urlTestGroups, filter: "(?i)(🇹🇼|TW|台湾)" },
+    { name: "🇺🇸 美国自动", ...urlTestGroups, filter: "(?i)(🇺🇸|US|美国)" },
     
     { name: "🐟 漏网之鱼", type: "select", proxies: [ "🚀 Proxy", "DIRECT" ] }
   ];
 
-  // --- 5. 规则集配置 ---
+  // --- 5. 规则集 ---
   config["rule-providers"] = {
     private_domain: { ...mrsDomain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs", path: "./ruleset/private_domain.mrs" },
     speedtest_domain: { ...mrsDomain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/ookla-speedtest.mrs", path: "./ruleset/speedtest_domain.mrs" },
@@ -90,3 +89,4 @@ function main(config) {
 
   return config;
 }
+
