@@ -9,7 +9,7 @@ function main(config) {
   const mrsDomain = { behavior: "domain", interval: 86400, format: "mrs", type: "http" };
   const mrsIP = { behavior: "ipcidr", interval: 86400, format: "mrs", type: "http" };
 
-  // 自动测速组通用配置 (解决 include-all 引号问题)
+  // 自动测速组通用配置
   const urlTestTemplate = {
     type: "url-test",
     "include-all": true,
