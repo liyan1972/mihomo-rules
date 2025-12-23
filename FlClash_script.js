@@ -10,7 +10,7 @@ function main(config) {
   const mrsIP = { behavior: "ipcidr", interval: 86400, format: "mrs", type: "http" };
 
   // --- 3. 自动测速 ---
-  const urlTestGroups = { type: "url-test", "include-all": true, hidden: false, interval: 300, tolerance: 30, url: "https://www.google.com/generate_204" };
+  const urlTestGroups = { type: "url-test", "include-all": true, hidden: true, interval: 300, tolerance: 30, url: "https://www.google.com/generate_204" };
 
   // --- 4. 代理组 ---
   config["proxy-groups"] = [
@@ -89,4 +89,5 @@ function main(config) {
 
   return config;
 }
+
 
