@@ -11,23 +11,11 @@ function main(config) {
   const mrsIP = { behavior: "ipcidr", interval: 86400, format: "mrs", type: "http" };
 
   // --- 3. 自动测速定义 ---
-  const urlTestTemplate = {
-    type: "url-test",
-    "include-all": true,
-    hidden: false,
-    interval: 300,
-    tolerance: 50,
-    url: "https://www.google.com/generate_204"
-  };
+  const urlTestTemplate = { type: "url-test", "include-all": true, hidden: false, interval: 300, tolerance: 50, url: "https://www.google.com/generate_204" };
 
   // --- 4. 代理组配置 ---
   config["proxy-groups"] = [
-    { 
-      name: "🚀 Proxy", 
-      type: "select", 
-      "include-all": true, 
-      proxies: [ "🚀 Auto", "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇹🇼 台湾自动", "🇺🇸 美国自动" ] 
-    },
+    { name: "🚀 Proxy", type: "select", "include-all": true, proxies: [ "🚀 Auto", "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇹🇼 台湾自动", "🇺🇸 美国自动" ] },
     { name: "🚀 Auto", type: "fallback", interval: 300, tolerance: 50, proxies: autoGroups },
     
     // 基础业务组 (使用 commonProxies 变量)
@@ -102,4 +90,3 @@ function main(config) {
 
   return config;
 }
-
