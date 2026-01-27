@@ -12,11 +12,7 @@ fracfdns.zone.id#🌏︎域名
 youxuan.cf.090227.xyz#🌏︎域名
 cf-cname.xingpingcn.top#🌏︎域名
 sub.danfeng.eu.org#🌏︎域名
-openai.com#🌏︎域名
-bbb.org#🌏︎域名
-mfa.gov.ua#🌏︎域名
 saas.sin.fan#🌏︎域名
-store.ubi.com#🌏︎域名
 cf.130519.xyz#🌏︎域名
 cf.008500.xyz#🌏︎域名
 cf.090227.xyz#🌏︎域名
@@ -25,3 +21,7 @@ cdns.doon.eu.org#🌏︎域名
 sub.danfeng.eu.org#🌏︎域名
 cf.zhetengsha.eu.org#🌏︎域名
 kr.9999669.xyz:50000#🌏︎域名
+openai.com#🌏︎域名
+bbb.org#🌏︎域名
+mfa.gov.ua#🌏︎域名
+store.ubi.com#🌏︎域名
