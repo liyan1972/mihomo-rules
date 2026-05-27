@@ -18,17 +18,17 @@ function main(config) {
     { name: "🔄 Auto", type: "fallback", interval: 300, tolerance: 30, proxies: autoGroups },
     
     // 业务组 (使用 selectGroups 变量)
-    { name: "📹 YouTube", type: "select", proxies: selectGroups },
-    { name: "🍀 Google", type: "select", proxies: selectGroups },
-    { name: "🤖 ChatGPT", type: "select", proxies: selectGroups },
-    { name: "👨🏿‍💻 GitHub", type: "select", proxies: selectGroups },
-    { name: "🐬 OneDrive", type: "select", proxies: selectGroups },
-    { name: "🪟 Microsoft", type: "select", proxies: selectGroups },
-    { name: "🎵 TikTok", type: "select", proxies: selectGroups },
-    { name: "📲 Telegram", type: "select", proxies: selectGroups },
-    { name: "🎥 NETFLIX", type: "select", proxies: selectGroups },
-    { name: "💶 PayPal", type: "select", proxies: selectGroups },
-    { name: "✈️ Speedtest", type: "select", proxies: selectGroups },
+    { name: "🤖 AGI",       type: "select", proxies: selectGroups, icon: https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png },
+    { name: "📹 YouTube",   type: "select", proxies: selectGroups, icon: https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/YouTube.png },
+    { name: "🍀 Google",    type: "select", proxies: selectGroups, icon: https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png },
+    { name: "👨🏿‍💻 GitHub",    type: "select", proxies: selectGroups, icon: https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/GitHub.png },
+    { name: "🐬 OneDrive",  type: "select", proxies: selectGroups, icon: https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Windows.png },
+    { name: "🪟 Microsoft",  type: "select", proxies: selectGroups, icon: https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Microsoft.png },
+    { name: "🎵 TikTok",    type: "select", proxies: selectGroups, icon: https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/TikTok.png },
+    { name: "📲 Telegram",  type: "select", proxies: selectGroups, icon: https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Telegram.png },
+    { name: "🎥 NETFLIX",   type: "select", proxies: selectGroups, icon: https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Netflix.png },
+    { name: "💶 PayPal",    type: "select", proxies: selectGroups, icon: https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/PayPal.png },
+    { name: "✈️ Speedtest", type: "select", proxies: selectGroups, icon: https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Speedtest.png },
 
     // Auto测速组 (使用 ...urlTestGroups 模板)
     { name: "🇭🇰 HKAuto", ...urlTestGroups, filter: "(?i)(🇭🇰|HK|香港)" },
