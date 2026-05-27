@@ -2,19 +2,19 @@
 
 function main(config) {
   // --- 1. 基础变量定义 ---
-  const autoGroups = [ "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇹🇼 台湾自动", "🇭🇰 香港自动", "🇺🇸 美国自动" ];
-  const selectGroups = [ "🚀 Proxy", "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇹🇼 台湾自动", "🇺🇸 美国自动", "DIRECT" ];
+  const autoGroups = [ "🇯🇵 JPAuto", "🇸🇬 SGAuto", "🇹🇼 TWAuto", "🇭🇰 HKAuto", "🇺🇸 USAuto" ];
+  const selectGroups = [ "🚀 Proxy", "🇭🇰 HKAuto", "🇯🇵 JPAuto", "🇸🇬 SGAuto", "🇹🇼 TWAuto", "🇺🇸 USAuto", "DIRECT" ];
 
   // --- 2. 规则集配置 ---
   const mrsDomain = { behavior: "domain", interval: 86400, format: "mrs", type: "http" };
   const mrsIP = { behavior: "ipcidr", interval: 86400, format: "mrs", type: "http" };
 
-  // --- 3. 自动测速 ---
+  // --- 3. Auto测速 ---
   const urlTestGroups = { type: "url-test", "include-all": true, hidden: true, interval: 300, tolerance: 30, url: "https://www.google.com/generate_204" };
 
   // --- 4. 代理组 ---
   config["proxy-groups"] = [
-    { name: "🚀 Proxy", type: "select", "include-all": true, proxies: [ "🔄 Auto", "🇭🇰 香港自动", "🇯🇵 日本自动", "🇸🇬 狮城自动", "🇹🇼 台湾自动", "🇺🇸 美国自动" ] },
+    { name: "🚀 Proxy", type: "select", "include-all": true, proxies: [ "🔄 Auto", "🇭🇰 HKAuto", "🇯🇵 JPAuto", "🇸🇬 SGAuto", "🇹🇼 TWAuto", "🇺🇸 USAuto" ] },
     { name: "🔄 Auto", type: "fallback", interval: 300, tolerance: 30, proxies: autoGroups },
     
     // 业务组 (使用 selectGroups 变量)
@@ -30,14 +30,14 @@ function main(config) {
     { name: "💶 PayPal", type: "select", proxies: selectGroups },
     { name: "✈️ Speedtest", type: "select", proxies: selectGroups },
 
-    // 自动测速组 (使用 ...urlTestGroups 模板)
-    { name: "🇭🇰 香港自动", ...urlTestGroups, filter: "(?i)(🇭🇰|HK|香港)" },
-    { name: "🇯🇵 日本自动", ...urlTestGroups, filter: "(?i)(🇯🇵|JP|日本)" },
-    { name: "🇸🇬 狮城自动", ...urlTestGroups, filter: "(?i)(🇸🇬|SG|新加坡)" },
-    { name: "🇹🇼 台湾自动", ...urlTestGroups, filter: "(?i)(🇹🇼|TW|台湾)" },
-    { name: "🇺🇸 美国自动", ...urlTestGroups, filter: "(?i)(🇺🇸|US|美国)" },
+    // Auto测速组 (使用 ...urlTestGroups 模板)
+    { name: "🇭🇰 HKAuto", ...urlTestGroups, filter: "(?i)(🇭🇰|HK|香港)" },
+    { name: "🇯🇵 JPAuto", ...urlTestGroups, filter: "(?i)(🇯🇵|JP|日本)" },
+    { name: "🇸🇬 SGAuto", ...urlTestGroups, filter: "(?i)(🇸🇬|SG|新加坡)" },
+    { name: "🇹🇼 TWAuto", ...urlTestGroups, filter: "(?i)(🇹🇼|TW|台湾)" },
+    { name: "🇺🇸 USAuto", ...urlTestGroups, filter: "(?i)(🇺🇸|US|美国)" },
     
-    { name: "🐟 漏网之鱼", type: "select", proxies: [ "🚀 Proxy", "DIRECT" ] }
+    { name: "🐟 Fianl", type: "select", proxies: [ "🚀 Proxy", "DIRECT" ] }
   ];
 
   // --- 5. 规则集 ---
@@ -84,7 +84,7 @@ function main(config) {
     "RULE-SET,netflix_ip,🎥 NETFLIX,no-resolve",
     "RULE-SET,telegram_ip,📲 Telegram,no-resolve",
     "RULE-SET,cn_ip,DIRECT",
-    "MATCH,🐟 漏网之鱼"
+    "MATCH,🐟 Fianl"
   ];
 
   return config;
