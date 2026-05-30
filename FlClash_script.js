@@ -2,8 +2,8 @@
 
 function main(config) {
   // --- 1. 基础变量定义 ---
-  const autoGroups = [ "🇯🇵 JPAuto", "🇸🇬 SGAuto", "🇹🇼 TWAuto", "🇭🇰 HKAuto", "🇺🇸 USAuto" ];
-  const selectGroups = [ "🚀 Proxy", "🇭🇰 HKAuto", "🇯🇵 JPAuto", "🇸🇬 SGAuto", "🇹🇼 TWAuto", "🇺🇸 USAuto", "DIRECT" ];
+  const autoGroups = [ "JPAuto", "SGAuto", "TWAuto", "HKAuto", "USAuto" ];
+  const selectGroups = [ "Proxy", "HKAuto", "JPAuto", "SGAuto", "TWAuto", "USAuto", "DIRECT" ];
 
   // --- 2. 规则集配置 ---
   const mrsDomain = { behavior: "domain", interval: 86400, format: "mrs", type: "http" };
@@ -14,31 +14,31 @@ function main(config) {
 
   // --- 4. 代理组 ---
   config["proxy-groups"] = [
-    { name: "🚀 Proxy", type: "select", "include-all": true, proxies: [ "🔄 Auto", "🇭🇰 HKAuto", "🇯🇵 JPAuto", "🇸🇬 SGAuto", "🇹🇼 TWAuto", "🇺🇸 USAuto" ] },
-    { name: "🔄 Auto", type: "fallback", interval: 300, tolerance: 30, proxies: autoGroups },
+    { name: "Proxy", type: "select", "include-all": true, proxies: [ "Auto", "HKAuto", "JPAuto", "SGAuto", "TWAuto", "USAuto" ], icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Available.png" },
+    { name: "Auto", type: "fallback", interval: 300, tolerance: 30, proxies: autoGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Auto.png" },
     
-    // 业务组 (修正了 icon 的引号问题，并将 🤖 AGI 改为了 🤖 ChatGPT 以匹配规则)
-    { name: "🤖 ChatGPT",  type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png" },
-    { name: "📹 YouTube",   type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/YouTube.png" },
-    { name: "🍀 Google",    type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png" },
-    { name: "👨🏿‍💻 GitHub",    type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/GitHub.png" },
-    { name: "🐬 OneDrive",  type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Windows.png" },
-    { name: "🪟 Microsoft", type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Microsoft.png" },
-    { name: "🎵 TikTok",    type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/TikTok.png" },
-    { name: "📲 Telegram",  type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Telegram.png" },
-    { name: "🎥 NETFLIX",   type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Netflix.png" },
-    { name: "💶 PayPal",    type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/PayPal.png" },
-    { name: "✈️ Speedtest", type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Speedtest.png" },
+    // 业务组 (修正了 icon 的引号问题，并将 🤖 AGI 改为了 ChatGPT 以匹配规则)
+    { name: "ChatGPT",   type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png" },
+    { name: "YouTube",   type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/YouTube.png" },
+    { name: "Google",    type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Google_Search.png" },
+    { name: "GitHub",    type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/GitHub.png" },
+    { name: "OneDrive",  type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Windows.png" },
+    { name: "Microsoft", type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Microsoft.png" },
+    { name: "TikTok",    type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/TikTok.png" },
+    { name: "Telegram",  type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Telegram.png" },
+    { name: "NETFLIX",   type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Netflix.png" },
+    { name: "PayPal",    type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/PayPal.png" },
+    { name: "Speedtest", type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Speedtest.png" },
 
     // Auto测速组
-    { name: "🇭🇰 HKAuto", ...urlTestGroups, filter: "(?i)(🇭🇰|HK|香港)" },
-    { name: "🇯🇵 JPAuto", ...urlTestGroups, filter: "(?i)(🇯🇵|JP|日本)" },
-    { name: "🇸🇬 SGAuto", ...urlTestGroups, filter: "(?i)(🇸🇬|SG|新加坡)" },
-    { name: "🇹🇼 TWAuto", ...urlTestGroups, filter: "(?i)(🇹🇼|TW|台湾)" },
-    { name: "🇺🇸 USAuto", ...urlTestGroups, filter: "(?i)(🇺🇸|US|美国)" },
+    { name: "HKAuto", ...urlTestGroups, filter: "(?i)(🇭🇰|HK|香港)" },
+    { name: "JPAuto", ...urlTestGroups, filter: "(?i)(🇯🇵|JP|日本)" },
+    { name: "SGAuto", ...urlTestGroups, filter: "(?i)(🇸🇬|SG|新加坡)" },
+    { name: "TWAuto", ...urlTestGroups, filter: "(?i)(🇹🇼|TW|台湾)" },
+    { name: "USAuto", ...urlTestGroups, filter: "(?i)(🇺🇸|US|美国)" },
     
     // 修正拼写 Fianl -> Final
-    { name: "🐟 Final", type: "select", proxies: [ "🚀 Proxy", "DIRECT" ] }
+    { name: "Final", type: "select", proxies: [ "Proxy", "DIRECT" ], hidden: true }
   ];
 
   // --- 5. 规则集 ---
@@ -68,24 +68,24 @@ function main(config) {
   config["rules"] = [
     "RULE-SET,private_ip,DIRECT,no-resolve",
     "RULE-SET,private_domain,DIRECT",
-    "RULE-SET,speedtest_domain,✈️ Speedtest",
-    "RULE-SET,ai,🤖 ChatGPT",
-    "RULE-SET,github_domain,👨🏿‍💻 GitHub",
-    "RULE-SET,youtube_domain,📹 YouTube",
-    "RULE-SET,google_domain,🍀 Google",
-    "RULE-SET,onedrive_domain,🐬 OneDrive",
-    "RULE-SET,microsoft_domain,🪟 Microsoft",
-    "RULE-SET,tiktok_domain,🎵 TikTok",
-    "RULE-SET,telegram_domain,📲 Telegram",
-    "RULE-SET,netflix_domain,🎥 NETFLIX",
-    "RULE-SET,paypal_domain,💶 PayPal",
-    "RULE-SET,geolocation-!cn,🚀 Proxy",
+    "RULE-SET,speedtest_domain,Speedtest",
+    "RULE-SET,ai,ChatGPT",
+    "RULE-SET,github_domain,GitHub",
+    "RULE-SET,youtube_domain,YouTube",
+    "RULE-SET,google_domain,Google",
+    "RULE-SET,onedrive_domain,OneDrive",
+    "RULE-SET,microsoft_domain,Microsoft",
+    "RULE-SET,tiktok_domain,TikTok",
+    "RULE-SET,telegram_domain,Telegram",
+    "RULE-SET,netflix_domain,NETFLIX",
+    "RULE-SET,paypal_domain,PayPal",
+    "RULE-SET,geolocation-!cn,Proxy",
     "RULE-SET,cn_domain,DIRECT",
-    "RULE-SET,google_ip,🍀 Google,no-resolve",
-    "RULE-SET,netflix_ip,🎥 NETFLIX,no-resolve",
-    "RULE-SET,telegram_ip,📲 Telegram,no-resolve",
+    "RULE-SET,google_ip,Google,no-resolve",
+    "RULE-SET,netflix_ip,NETFLIX,no-resolve",
+    "RULE-SET,telegram_ip,Telegram,no-resolve",
     "RULE-SET,cn_ip,DIRECT",
-    "MATCH,🐟 Final"
+    "MATCH,Final"
   ];
 
   return config;
