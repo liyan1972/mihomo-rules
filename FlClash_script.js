@@ -2,7 +2,7 @@
 
 function main(config) {
   // --- 1. 基础变量定义 ---
-  const autoGroups = [ "JPAuto", "SGAuto", "TWAuto", "HKAuto", "KRAuto", "USAuto" ];
+  // const autoGroups = [ "JPAuto", "SGAuto", "TWAuto", "HKAuto", "KRAuto", "USAuto" ];
   const selectGroups = [ "Proxy", "HKAuto", "JPAuto", "SGAuto", "TWAuto", "KRAuto", "USAuto", "DIRECT" ];
 
   // --- 2. 规则集配置 ---
@@ -14,8 +14,7 @@ function main(config) {
 
   // --- 4. 代理组 ---
   config["proxy-groups"] = [
-    { name: "Proxy", type: "select", "include-all": true, proxies: [ "Auto", "HKAuto", "JPAuto", "SGAuto", "TWAuto", "USAuto" ], icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Available.png" },
-    { name: "Auto", type: "fallback", interval: 300, tolerance: 30, proxies: autoGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Auto.png" },
+    { name: "Proxy", type: "select", "include-all": true, proxies: [ "HKAuto", "JPAuto", "SGAuto", "TWAuto", "KRAuto", "USAuto" ], icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Available.png" },
     
     // 业务组
     { name: "ChatGPT",   type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/ChatGPT.png" },
@@ -56,7 +55,7 @@ function main(config) {
     telegram_domain:    { ...mrsDomain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs", path: "./ruleset/telegram_domain.mrs" },
     netflix_domain:     { ...mrsDomain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs", path: "./ruleset/netflix_domain.mrs" },
     paypal_domain:      { ...mrsDomain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs", path: "./ruleset/paypal_domain.mrs" },
-    geolocation-!cn:    { ...mrsDomain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs", path: "./ruleset/geolocation-!cn.mrs" },
+    "geolocation-!cn":  { ...mrsDomain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs", path: "./ruleset/geolocation-!cn.mrs" },
     cn_domain:          { ...mrsDomain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs", path: "./ruleset/cn_domain.mrs" },
     private_ip:         { ...mrsIP,     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs", path: "./ruleset/private_ip.mrs" },
     google_ip:          { ...mrsIP,     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs", path: "./ruleset/google_ip.mrs" },
