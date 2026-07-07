@@ -31,12 +31,12 @@ function main(config) {
     { name: "Speedtest", type: "select", proxies: selectGroups, icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Speedtest.png" },
 
     // Auto测速组
-    { name: "HKAuto", ...urlTestGroups, filter: "(?i)(🇭🇰|HK|香港)",   icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png" },
-    { name: "JPAuto", ...urlTestGroups, filter: "(?i)(🇯🇵|JP|日本)",    icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png" },
-    { name: "SGAuto", ...urlTestGroups, filter: "(?i)(🇸🇬|SG|新加坡)", icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png" },
-    { name: "TWAuto", ...urlTestGroups, filter: "(?i)(🇹🇼|TW|台湾)",   icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Taiwan.png" },
-    { name: "KRAuto", ...urlTestGroups, filter: "(?i)(🇹🇼|TW|台湾)",   icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Korea.png" },
-    { name: "USAuto", ...urlTestGroups, filter: "(?i)(🇺🇸|US|美国)",   icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png" },
+    { name: "HKAuto", ...urlTestGroups, filter: "(?i)(🇭🇰|HK|HKG|香港)",     icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png" },
+    { name: "JPAuto", ...urlTestGroups, filter: "(?i)(🇯🇵|JP|NRT|日本)",      icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png" },
+    { name: "SGAuto", ...urlTestGroups, filter: "(?i)(🇸🇬|SG|SIN|新加坡)",   icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png" },
+    { name: "TWAuto", ...urlTestGroups, filter: "(?i)(🇹🇼|TW|TPE|台湾)",     icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Taiwan.png" },
+    { name: "KRAuto", ...urlTestGroups, filter: "(?i)(🇰🇷|KR|ICN|韩国)",     icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Korea.png" },
+    { name: "USAuto", ...urlTestGroups, filter: "(?i)(🇺🇸|US|LAX|SJC|美国)",  icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png" },
     
     // Final组
     { name: "Final", type: "select", proxies: [ "Proxy", "DIRECT" ], hidden: true }
