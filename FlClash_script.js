@@ -2,8 +2,8 @@
 
 function main(config) {
   // --- 1. 基础变量定义 ---
-  const autoGroups = [ "JPAuto", "SGAuto", "TWAuto", "HKAuto", "USAuto" ];
-  const selectGroups = [ "Proxy", "HKAuto", "JPAuto", "SGAuto", "TWAuto", "USAuto", "DIRECT" ];
+  const autoGroups = [ "JPAuto", "SGAuto", "TWAuto", "HKAuto", "KRAuto", "USAuto" ];
+  const selectGroups = [ "Proxy", "HKAuto", "JPAuto", "SGAuto", "TWAuto", "KRAuto", "USAuto", "DIRECT" ];
 
   // --- 2. 规则集配置 ---
   const mrsDomain = { behavior: "domain", interval: 86400, format: "mrs", type: "http" };
@@ -36,7 +36,7 @@ function main(config) {
     { name: "SGAuto", ...urlTestGroups, filter: "(?i)(🇸🇬|SG|SIN|新加坡)",   icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png" },
     { name: "TWAuto", ...urlTestGroups, filter: "(?i)(🇹🇼|TW|TPE|台湾)",     icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Taiwan.png" },
     { name: "KRAuto", ...urlTestGroups, filter: "(?i)(🇰🇷|KR|ICN|韩国)",     icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Korea.png" },
-    { name: "USAuto", ...urlTestGroups, filter: "(?i)(🇺🇸|US|LAX|SJC|美国)",  icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png" },
+    { name: "USAuto", ...urlTestGroups, filter: "(?i)(🇺🇸|US|LAX|SJC|美国)", icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png" },
     
     // Final组
     { name: "Final", type: "select", proxies: [ "Proxy", "DIRECT" ], hidden: true }
@@ -56,13 +56,13 @@ function main(config) {
     telegram_domain:    { ...mrsDomain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs", path: "./ruleset/telegram_domain.mrs" },
     netflix_domain:     { ...mrsDomain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs", path: "./ruleset/netflix_domain.mrs" },
     paypal_domain:      { ...mrsDomain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs", path: "./ruleset/paypal_domain.mrs" },
-    "geolocation-!cn":  { ...mrsDomain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs", path: "./ruleset/geolocation-!cn.mrs" },
+    geolocation-!cn:    { ...mrsDomain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs", path: "./ruleset/geolocation-!cn.mrs" },
     cn_domain:          { ...mrsDomain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs", path: "./ruleset/cn_domain.mrs" },
-    private_ip:         { ...mrsIP, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs", path: "./ruleset/private_ip.mrs" },
-    google_ip:          { ...mrsIP, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs", path: "./ruleset/google_ip.mrs" },
-    telegram_ip:        { ...mrsIP, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs", path: "./ruleset/telegram_ip.mrs" },
-    netflix_ip:         { ...mrsIP, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs", path: "./ruleset/netflix_ip.mrs" },
-    cn_ip:              { ...mrsIP, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs", path: "./ruleset/cn_ip.mrs" }
+    private_ip:         { ...mrsIP,     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs", path: "./ruleset/private_ip.mrs" },
+    google_ip:          { ...mrsIP,     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs", path: "./ruleset/google_ip.mrs" },
+    telegram_ip:        { ...mrsIP,     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs", path: "./ruleset/telegram_ip.mrs" },
+    netflix_ip:         { ...mrsIP,     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs", path: "./ruleset/netflix_ip.mrs" },
+    cn_ip:              { ...mrsIP,     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs", path: "./ruleset/cn_ip.mrs" }
   };
 
   // --- 6. 规则 ---
