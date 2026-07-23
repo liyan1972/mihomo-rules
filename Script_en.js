@@ -2,7 +2,6 @@
 
 function main(config) {
   // --- 1. 基础变量定义 ---
-  // const autoGroups = [ "JPAuto", "SGAuto", "TWAuto", "HKAuto", "KRAuto", "USAuto" ];
   const selectGroups = [ "Proxy", "HKAuto", "JPAuto", "SGAuto", "TWAuto", "KRAuto", "USAuto", "DIRECT" ];
 
   // --- 2. 规则集配置 ---
@@ -66,6 +65,8 @@ function main(config) {
 
   // --- 6. 规则 ---
   config["rules"] = [
+    "RULE-SET,cn_ip,DIRECT",
+    "RULE-SET,cn_domain,DIRECT",
     "RULE-SET,private_ip,DIRECT,no-resolve",
     "RULE-SET,private_domain,DIRECT",
     "RULE-SET,speedtest_domain,Speedtest",
@@ -80,11 +81,9 @@ function main(config) {
     "RULE-SET,netflix_domain,NETFLIX",
     "RULE-SET,paypal_domain,PayPal",
     "RULE-SET,geolocation-!cn,Proxy",
-    "RULE-SET,cn_domain,DIRECT",
     "RULE-SET,google_ip,Google,no-resolve",
     "RULE-SET,netflix_ip,NETFLIX,no-resolve",
     "RULE-SET,telegram_ip,Telegram,no-resolve",
-    "RULE-SET,cn_ip,DIRECT",
     "MATCH,Final"
   ];
 
